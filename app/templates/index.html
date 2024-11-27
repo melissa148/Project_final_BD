@@ -1,1 +1,27 @@
+{% extends "layout.html" %}
 
+{% block content %}
+<div class="container">
+    <h1 class="title">Bienvenido a la Red Social</h1>
+    <div class="cards">
+        <!-- Enlace a Usuarios -->
+        <a href="{{ url_for('user_bp.ver_usuario', usuario_id=0) }}" class="card">
+            <img src="{{ url_for('static', filename='img/users_icon.png') }}" alt="Usuarios">
+            <h2>Usuarios</h2>
+        </a>
+
+
+        <!-- Enlace a Influencers -->
+        <a href="{{ url_for('influencer_bp.obtener_influencers', influencer_id=0) }}" class="card">
+            <img src="{{ url_for('static', filename='img/influencers_icon.png') }}" alt="Influencers">
+            <h2>Influencers</h2>
+        </a>
+
+        <!-- Enlace a Publicaciones -->
+        <a href="{{ url_for('post_bp.ver_publicacion' , post_id=0) }}" class="card">
+            <img src="{{ url_for('static', filename='img/posts_icon.png') }}" alt="Publicaciones">
+            <h2>Publicaciones</h2>
+        </a>
+    </div>
+</div>
+{% endblock %}

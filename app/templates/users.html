@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Usuarios</h1>
+    <div class="user-cards">
+        {% for usuario in usuarios %}
+        <div class="user-card">
+            <img src="{{ url_for('static', filename='img/user_avatar.png') }}" alt="Avatar del usuario" class="user-avatar">
+            <h3>{{ usuario.nombre }}</h3>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

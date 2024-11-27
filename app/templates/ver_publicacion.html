@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Detalles de la Publicación</h1>
+    <div class="publication-details">
+        <div class="user-info">
+            <img src="{{ url_for('static', filename='img/user_avatar.png') }}" alt="Avatar del usuario" class="user-avatar">
+            <h3>{{ usuario.nombre }} publicó</h3>
+        </div>
+        <div class="publication-content">
+            {% if publicacion.url.endswith('.jpg') or publicacion.url.endswith('.png') %}
+            <img src="{{ publicacion.url }}" alt="Imagen de la publicación" class="publication-image">
+            {% elif publicacion.url.endswith('.mp4') %}
+            <video controls class="publication-video">
+                <source src="{{ publicacion.url }}" type="video/mp4">
+                Tu navegador no admite el elemento de video.
+            </video>
+            {% else %}
+            <p>{{ publicacion.url }}</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
